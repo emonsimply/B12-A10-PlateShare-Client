@@ -26,7 +26,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="min-h-[calc(100vh-137px)] flex items-center justify-center">
+    <div className="min-h-[calc(100vh-137px)] flex items-center justify-center p-4">
     <div className="card bg-white w-full max-w-sm mx-auto shrink-0 rounded-2xl shadow-lg">
       
       <div className="card-body">

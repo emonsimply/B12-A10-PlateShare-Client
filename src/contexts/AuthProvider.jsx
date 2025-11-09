@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 
 
@@ -48,8 +49,24 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+
+
+  const updateUserProfile = (name, photoURL) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photoURL,
+    }).then(() => {
+      setUser({
+        ...auth.currentUser,
+        displayName: name,
+        photoURL: photoURL,
+      });
+    });
+  };
+
   const authInfo = {
     createUser,
+    updateUserProfile,
     singInUser,
     singInWithGoogle,
     SignOut,
