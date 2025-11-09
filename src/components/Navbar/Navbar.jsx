@@ -1,9 +1,12 @@
 import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext";
+import logo from "../../assets/PlateShare_logo_icon.png";
+import "./Navbar.css";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const {user} =use(AuthContext);
+  const { user, SignOut } = use(AuthContext);
   const links = (
     <>
       <li>
@@ -12,12 +15,33 @@ const Navbar = () => {
       <li>
         <NavLink to="/available-foods">Available Foods</NavLink>
       </li>
-      
     </>
   );
 
+  const handleSignOut = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will be logged out from your account!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#F379A7",
+      cancelButtonColor: "#aaa",
+      confirmButtonText: "Yes, logout",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        SignOut()
+          .then(() => {
+            Swal.fire("Logged out!", "You have been logged out.", "success");
+          })
+          .catch((error) => {
+            Swal.fire("Error!", error.message, "error");
+          });
+      }
+    });
+  };
+
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -44,52 +68,53 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
+        <img className="w-8 h-8" src={logo} alt="" />
         <a className="btn btn-ghost text-xl">PlateShare</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {links}
-          {user ? (
-              <div className="dropdown dropdown-end">
-                <div tabIndex={0} className="cursor-pointer">
-                  <img
-                    src={user.photoURL}
-                    alt="Profile"
-                    className="w-10 h-10 rounded-full border-2 border-green-500"
-                    title={user.displayName || "User"}
-                  />
-                </div>
-                <ul
-                  tabIndex={0}
-                  className="menu dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-                >
-                  <li>
-                    <span className="text-gray-600 font-semibold">
-                      {user.displayName}
-                    </span>
-                  </li>
-                  <li>
-                    <button
-                      // onClick={handleLogout}
-                      className="text-red-500 font-semibold"
-                    >
-                      Logout
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            ) : (
-              <Link
-                to="/login"
-                className="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition"
-              >
-                Login
-              </Link>
-            )}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        {user ? (
+          <div className="dropdown dropdown-end">
+            <div tabIndex={0} className="cursor-pointer">
+              <img
+                src={user.photoURL}
+                alt="Profile"
+                className="w-10 h-10 rounded-full border-2 border-green-500"
+                title={user.displayName || "User"}
+              />
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <span className="text-gray-600 font-semibold">
+                  {user.displayName}
+                </span>
+              </li>
+              <li>Add Food (Private)</li>
+              <li>Manage My Foods</li>
+              <li>My Food Requests (Private)</li>
+              <li>
+                <button
+                  onClick={handleSignOut}
+                  className="text-red-500 font-semibold"
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <Link
+            to="/login"
+            className=" px-4 py-1.5 border-primary border-3 font-semibold hover:text-white hover:bg-[#F4991A] rounded-full transition duration-300"
+          >
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
