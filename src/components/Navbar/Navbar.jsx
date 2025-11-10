@@ -81,7 +81,7 @@ const Navbar = () => {
               <img
                 src={user.photoURL}
                 alt="Profile"
-                className="w-10 h-10 rounded-full border-2 border-green-500"
+                className="w-10 h-10 rounded-full border-2 cursor-pointer"
                 title={user.displayName || "User"}
               />
             </div>
@@ -89,14 +89,10 @@ const Navbar = () => {
               tabIndex={0}
               className="menu dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <span className="text-gray-600 font-semibold">
-                  {user.displayName}
-                </span>
-              </li>
-              <li>Add Food (Private)</li>
+             <Link to='/add-food'><li>Add Food</li></Link>
+              
               <li>Manage My Foods</li>
-              <li>My Food Requests (Private)</li>
+              <li>My Food Requests</li>
               <li>
                 <button
                   onClick={handleSignOut}
@@ -110,7 +106,7 @@ const Navbar = () => {
         ) : (
           <Link
             to="/login"
-            className=" px-4 py-1.5 border-primary border-3 font-semibold hover:text-white hover:bg-[#F4991A] rounded-full transition duration-300"
+            className=" px-4 py-1.5 border-primary border-3 font-semibold hover:text-white hover:bg-primary rounded-full transition duration-300"
           >
             Login
           </Link>

@@ -86,7 +86,7 @@ const Register = () => {
 
   return (
     <div className="min-h-[calc(100vh-137px)] flex items-center justify-center p-4">
-      <div className="card bg-white w-full max-w-sm mx-auto shrink-0 rounded-2xl shadow-lg">
+      <div className="card bg-primary/20 w-full max-w-sm mx-auto shrink-0 rounded-2xl shadow-lg">
         <div className="card-body">
           <form onSubmit={handleRegister}>
             <fieldset className="fieldset">
@@ -122,7 +122,7 @@ const Register = () => {
                 placeholder="Password"
               />
 
-              <button className="px-4 py-1.5 mt-3 border-primary border-3 font-semibold hover:text-white hover:bg-primary rounded-full transition duration-300">
+              <button className="px-4 py-1.5 cursor-pointer mt-3 border-primary border-3 font-semibold hover:text-white hover:bg-primary rounded-full transition duration-300">
                 Register
               </button>
               <div className="divider">OR</div>
@@ -130,7 +130,7 @@ const Register = () => {
           </form>
           <button
             onClick={handleGoogleLogin}
-            className="px-4 py-1.5 border-primary border-3 font-semibold hover:text-white hover:bg-primary rounded-full transition duration-300 flex items-center justify-center gap-2 w-full"
+            className="px-4 py-1.5 cursor-pointer border-primary border-3 font-semibold hover:text-white hover:bg-primary rounded-full transition duration-300 flex items-center justify-center gap-2 w-full"
           >
             <FcGoogle />
             Login with Google
