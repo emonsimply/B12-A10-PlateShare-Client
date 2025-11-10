@@ -6,12 +6,12 @@ import { Outlet } from "react-router";
 const MainLayout = () => {
   return (
     <div>
-      <div className="max-w-7xl mx-auto">
+      <nav className="max-w-7xl mx-auto">
         <Navbar></Navbar>
-        <main className="min-h-[calc(100vh-137px)] my-auto">
+      </nav>
+      <main className="min-h-[calc(100vh-65px)] my-auto">
           <Outlet></Outlet>
         </main>
-      </div>
       <Footer></Footer>
     </div>
   );

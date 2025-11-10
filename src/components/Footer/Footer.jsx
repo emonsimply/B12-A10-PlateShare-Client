@@ -11,6 +11,13 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import logo from "../../assets/PlateShare_logo_icon.png";
+const socialLinks = [
+  { icon: FaFacebookF, url: "https://facebook.com" },
+  { icon: FaLinkedinIn, url: "https://linkedin.com" },
+  { icon: FaTwitter, url: "https://twitter.com" },
+  { icon: FaBehance, url: "https://behance.net" },
+  { icon: FaInstagram, url: "https://instagram.com" },
+];
 
 const Footer = () => {
   return (
@@ -27,18 +34,18 @@ const Footer = () => {
             community and reduce waste. Post, find, and request food easily.
           </p>
           <div className="flex gap-3 mt-6">
-            {[FaFacebookF, FaLinkedinIn, FaTwitter, FaBehance, FaInstagram].map(
-              (Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className=" text-primary p-3 border border-primary hover:bg-primary hover:text-white rounded-full duration-300 transition"
-                >
-                  <Icon />
-                </a>
-              )
-            )}
-          </div>
+      {socialLinks.map(({ icon: Icon, url }, i) => (
+        <a
+          key={i}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary p-3 border border-primary hover:bg-primary hover:text-white rounded-full duration-300 transition"
+        >
+          <Icon />
+        </a>
+      ))}
+    </div>
         </div>
 
         <div>

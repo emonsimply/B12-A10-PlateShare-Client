@@ -56,7 +56,7 @@ const FoodDetails = () => {
       {/* Food Image */}
       <div className="relative w-full h-72 md:h-96 rounded-2xl overflow-hidden shadow-md mb-8">
         <img src={image} alt={name} className="w-full h-full object-cover" />
-        <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-full text-sm font-semibold text-primary">
+        <div className="absolute top-3 right-3 bg-green-500 px-3 py-1 rounded-full text-sm font-semibold text-white">
           {status}
         </div>
       </div>
