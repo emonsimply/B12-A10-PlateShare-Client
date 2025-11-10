@@ -1,6 +1,6 @@
 import React, { use, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../../contexts/AuthContext';
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineDateRange } from "react-icons/md";
 

@@ -87,11 +87,12 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu dropdown-content mt-3 z-index-1 p-2 shadow bg-base-100 rounded-box w-52"
             >
              <Link to='/add-food'><li>Add Food</li></Link>
+             <Link to='/manage-my-foods'><li>Manage My Foods</li></Link>
               
-              <li>Manage My Foods</li>
+              
               <li>My Food Requests</li>
               <li>
                 <button

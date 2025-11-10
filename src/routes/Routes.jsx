@@ -3,10 +3,11 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
-import AddFood from "../Foods/AddFood";
-import AvailableFoods from "../Foods/AvailableFoods";
-import FoodDetails from "../Foods/FoodDetails";
+import AddFood from "../pages/Foods/AddFood";
+import AvailableFoods from "../pages/Foods/AvailableFoods";
+import FoodDetails from "../pages/Foods/FoodDetails";
 import PrivateRoute from "./PrivateRoute";
+import ManageMyFoods from "../pages/ManageMyFoods/ManageMyFoods";
 
 export const router = createBrowserRouter([
   {
@@ -36,7 +37,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/food/:id",
-        element: <PrivateRoute><FoodDetails></FoodDetails></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <FoodDetails></FoodDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/manage-my-foods",
+        element: (
+          <PrivateRoute>
+            <ManageMyFoods></ManageMyFoods>
+          </PrivateRoute>
+        ),
       },
     ],
   },

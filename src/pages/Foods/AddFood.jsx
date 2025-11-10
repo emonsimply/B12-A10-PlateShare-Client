@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { AuthContext } from "../contexts/AuthContext";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
@@ -25,26 +25,25 @@ const AddFood = () => {
       donator_image: user?.photoURL,
     };
 
-
     console.log(foodData);
     setLoading(false);
 
-    fetch('http://localhost:3000/foods', {
+    fetch("http://localhost:3000/foods", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(foodData)
+      body: JSON.stringify(foodData),
     })
-    .then(res => res.json())
-    .then(() => {
-      alert("Successfully added!")
-      e.target.reset();
-      setExpireDate(null);
-    })
-    .catch(err => {
-      console.log(err)
-    })
+      .then((res) => res.json())
+      .then(() => {
+        alert("Successfully added!");
+        e.target.reset();
+        setExpireDate(null);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
