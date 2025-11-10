@@ -1,11 +1,14 @@
 import React, { use } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import Swal from "sweetalert2";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const { singInWithGoogle, singInUser } = use(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -22,7 +25,7 @@ const Login = () => {
           showConfirmButton: false,
         });
         e.target.reset();
-        
+        navigate(location.state || "/");
       })
       .catch((err) => {
         Swal.fire({

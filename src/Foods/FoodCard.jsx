@@ -1,8 +1,7 @@
-import React, { use } from "react";
+import React from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineDateRange } from "react-icons/md";
-import { AuthContext } from "../contexts/AuthContext";
-import { useNavigate } from "react-router";
+import { Link } from "react-router";
 
 const FoodCard = ({ food }) => {
   const {
@@ -16,16 +15,9 @@ const FoodCard = ({ food }) => {
     donator_image,
   } = food;
 
-  const navigate = useNavigate();
-  const { user } = use(AuthContext);
+  
 
-  const handleViewDetails = () => {
-    if (!user) {
-      navigate("/login");
-    } else {
-      navigate(`/foods/${_id}`);
-    }
-  };
+  
 
   const formattedDate = new Date(expire_date).toLocaleDateString("en-GB", {
     day: "numeric",
@@ -71,12 +63,14 @@ const FoodCard = ({ food }) => {
         </div>
 
         {/* Button */}
-        <button
-          onClick={handleViewDetails}
+        <Link to={`/food/${_id}`}>
+        <button 
           className="w-full mt-4 py-2 text-primary hover:text-white font-semibold rounded-full hover:bg-primary cursor-pointer transition-primary all duration-300 border-primary border-2"
         >
           View Details
         </button>
+        </Link>
+        
       </div>
     </div>
   );
