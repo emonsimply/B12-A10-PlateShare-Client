@@ -37,9 +37,10 @@ const AddFood = () => {
       body: JSON.stringify(foodData)
     })
     .then(res => res.json())
-    .then(data=> {
+    .then(() => {
       alert("Successfully added!")
-      console.log(data)
+      e.target.reset();
+      setExpireDate(null);
     })
     .catch(err => {
       console.log(err)
@@ -81,9 +82,9 @@ const AddFood = () => {
             <div className="w-1/2">
               <label className="block font-semibold">Food Quantity</label>
               <input
-                type="text"
+                type="number"
                 name="quantity"
-                placeholder="e.g. Serves 2 people"
+                placeholder="Enter number of people"
                 required
                 className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
               />
