@@ -17,6 +17,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+        loader: () => fetch('http://localhost:3000/featured-foods')
       },
       {
         path: "/login",

@@ -2,10 +2,10 @@ import React from 'react';
 import { FaUsers, FaHeart, FaLeaf, FaClock } from 'react-icons/fa';
 
 const stats = [
-  { icon: <FaUsers className="w-8 h-8" />, value: '2,500+', label: 'Active Community Members', color: 'text-[#F4991A]' },
+  { icon: <FaUsers className="w-8 h-8" />, value: '2,500+', label: 'Active Community Members', color: 'text-primary' },
   { icon: <FaHeart className="w-8 h-8" />, value: '8,900+', label: 'Meals Shared & Saved', color: 'text-red-500' },
   { icon: <FaLeaf className="w-8 h-8" />, value: '1.2 Ton', label: 'Food Waste Prevented', color: 'text-[#344F1F]' },
-  { icon: <FaClock className="w-8 h-8" />, value: '24/7', label: 'Always Ready to Help', color: 'text-[#F4991A]' },
+  { icon: <FaClock className="w-8 h-8" />, value: '24/7', label: 'Always Ready to Help', color: 'text-primary' },
 ];
 
 const CommunityStats = () => {
@@ -30,7 +30,7 @@ const CommunityStats = () => {
               className="bg-white/15 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300"
             >
               <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 ${
-                index % 2 === 0 ? 'bg-[#F4991A]/20' : 'bg-white/10'
+                index % 2 === 0 ? 'bg-primary/20' : 'bg-white/10'
               }`}>
                 <span className={stat.color}>{stat.icon}</span>
               </div>
