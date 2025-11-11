@@ -2,13 +2,13 @@ import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
 import { Link } from "react-router";
+import Swal from "sweetalert2";
 
 const ManageMyFoods = () => {
   const { user } = use(AuthContext);
   const [myFood, setMyFood] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  console.log(user, myFood, loading);
 
   useEffect(() => {
     fetch(`http://localhost:3000/my-foods?email=${user.email}`)
@@ -18,6 +18,43 @@ const ManageMyFoods = () => {
         setLoading(false);
       });
   }, [user]);
+
+
+
+
+  const handleDelete = (id) => {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You want to delete this food item?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#3085d6",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`http://localhost:3000/foods/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            // re-fetch from server
+            fetch(`http://localhost:3000/my-foods?email=${user.email}`)
+              .then((res) => res.json())
+              .then((updated) => setMyFood(updated));
+
+            Swal.fire("Deleted!", "Your food item has been deleted.", "success");
+          }
+        })
+        .catch((err) => {
+          console.error("Delete error:", err);
+          Swal.fire("Error!", "Failed to delete the item.", "error");
+        });
+    }
+  });
+};
+
 
   if (loading) {
     return <LoadingSpinner></LoadingSpinner>;
@@ -100,7 +137,7 @@ const ManageMyFoods = () => {
                     Update
                   </Link>
                   <button
-                    // onClick={() => handleDelete(food._id)}
+                    onClick={() => handleDelete(food._id)}
                     className="px-2 py-1 border-red-500 text-red-500 border font-semibold hover:text-white hover:bg-red-500 rounded-full transition duration-300 cursor-pointer"
                   >
                     Delete
