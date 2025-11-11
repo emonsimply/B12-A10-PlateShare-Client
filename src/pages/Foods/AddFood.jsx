@@ -25,7 +25,7 @@ const AddFood = () => {
       donator_image: user?.photoURL,
     };
 
-    console.log(foodData);
+    
     setLoading(false);
 
     fetch("http://localhost:3000/foods", {

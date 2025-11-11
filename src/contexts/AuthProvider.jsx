@@ -10,6 +10,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import LoadingSpinner from "../pages/Loading/LoadingSpinner";
 
 
 const GoogleProvider = new GoogleAuthProvider();
@@ -75,7 +76,7 @@ const AuthProvider = ({ children }) => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner></LoadingSpinner>
   }
   return <AuthContext value={authInfo}>{children}</AuthContext>;
 };

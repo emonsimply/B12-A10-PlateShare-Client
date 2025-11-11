@@ -4,16 +4,25 @@ import { AuthContext } from "../../contexts/AuthContext";
 import logo from "../../assets/PlateShare_logo_icon.png";
 import "./Navbar.css";
 import Swal from "sweetalert2";
+import { MdLogout, MdManageAccounts, MdOutlineFoodBank } from "react-icons/md";
+import { IoFastFoodOutline, IoHomeOutline } from "react-icons/io5";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 const Navbar = () => {
   const { user, SignOut } = use(AuthContext);
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/">
+          <IoHomeOutline />
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/available-foods">Available Foods</NavLink>
+        <NavLink to="/available-foods">
+          <IoFastFoodOutline />
+          Available Foods
+        </NavLink>
       </li>
     </>
   );
@@ -89,16 +98,31 @@ const Navbar = () => {
               tabIndex={0}
               className="menu dropdown-content mt-3 z-index-1 p-2 shadow bg-base-100 rounded-box w-52"
             >
-             <Link to='/add-food'><li>Add Food</li></Link>
-             <Link to='/manage-my-foods'><li>Manage My Foods</li></Link>
-              
-              
-              <li>My Food Requests</li>
+              <li>
+                <NavLink to="/add-food">
+                  <IoIosAddCircleOutline />
+                  Add Food
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/manage-my-foods">
+                  <MdManageAccounts />
+                  Manage My Foods
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/my-food-requests">
+                  <MdOutlineFoodBank />
+                  My Food Requests
+                </NavLink>
+              </li>
+
               <li>
                 <button
                   onClick={handleSignOut}
                   className="text-red-500 font-semibold"
                 >
+                  <MdLogout />
                   Logout
                 </button>
               </li>

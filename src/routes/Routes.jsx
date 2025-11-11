@@ -8,11 +8,13 @@ import AvailableFoods from "../pages/Foods/AvailableFoods";
 import FoodDetails from "../pages/Foods/FoodDetails";
 import PrivateRoute from "./PrivateRoute";
 import ManageMyFoods from "../pages/ManageMyFoods/ManageMyFoods";
+import ErrorPage from "../pages/Error/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,

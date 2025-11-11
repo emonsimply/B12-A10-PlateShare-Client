@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineDateRange } from "react-icons/md";
+import LoadingSpinner from '../Loading/LoadingSpinner';
 
 const FoodDetails = () => {
   const {user} = use(AuthContext)
@@ -25,7 +26,7 @@ const FoodDetails = () => {
 
 
   if (loading) {
-    return <div className="text-center py-20 text-lg font-medium">Loading...</div>;
+    return <LoadingSpinner></LoadingSpinner>;
   }
 
   if (!food) {

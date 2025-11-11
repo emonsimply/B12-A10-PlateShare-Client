@@ -10,8 +10,8 @@ const stats = [
 
 const CommunityStats = () => {
   return (
-    <section className="py-16 md:py-20 bg-linear-to-r from-secondary via-[#527734] to-secondary">
-      <div className="container mx-auto px-4">
+    <section className="py-16 md:py-20 bg-linear-to-r from-secondary via-[#527734] to-secondary ">
+      <div className="max-w-7xl mx-auto px-4">
        
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
