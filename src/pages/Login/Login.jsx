@@ -1,8 +1,8 @@
 import React, { use } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
-import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { singInWithGoogle, singInUser } = use(AuthContext);
@@ -44,7 +44,7 @@ const Login = () => {
           title: "Logged in with Google!",
           text: `Welcome ${result.user.displayName}`,
         });
-        
+        navigate(location.state || "/");
       })
       .catch((err) => {
         Swal.fire({

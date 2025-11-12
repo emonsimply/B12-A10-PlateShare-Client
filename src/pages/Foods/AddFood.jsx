@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../contexts/AuthContext";
+import Swal from "sweetalert2";
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
@@ -37,12 +38,27 @@ const AddFood = () => {
     })
       .then((res) => res.json())
       .then(() => {
-        alert("Successfully added!");
+         Swal.fire({
+          title: "Food Added Successfully!",
+          text: "Your food item is now available for donation.",
+          icon: "success",
+          confirmButtonText: "Great!",
+          confirmButtonColor: "#16a34a",
+          background: "#f0fdf4",
+        });
+
         e.target.reset();
         setExpireDate(null);
       })
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+        title: "Oops!",
+        text: err.message || "Something went wrong while adding food.",
+        icon: "error",
+        confirmButtonText: "Try Again",
+        confirmButtonColor: "#dc2626",
+        background: "#fef2f2",
+      });
       });
   };
 

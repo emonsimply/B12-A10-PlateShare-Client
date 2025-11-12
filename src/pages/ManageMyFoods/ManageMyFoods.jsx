@@ -9,7 +9,6 @@ const ManageMyFoods = () => {
   const [myFood, setMyFood] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
     fetch(`http://localhost:3000/my-foods?email=${user.email}`)
       .then((res) => res.json())
@@ -19,42 +18,42 @@ const ManageMyFoods = () => {
       });
   }, [user]);
 
-
-
-
   const handleDelete = (id) => {
-  Swal.fire({
-    title: "Are you sure?",
-    text: "You want to delete this food item?",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#d33",
-    cancelButtonColor: "#3085d6",
-    confirmButtonText: "Yes, delete it!",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      fetch(`http://localhost:3000/foods/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount > 0) {
-            // re-fetch from server
-            fetch(`http://localhost:3000/my-foods?email=${user.email}`)
-              .then((res) => res.json())
-              .then((updated) => setMyFood(updated));
-
-            Swal.fire("Deleted!", "Your food item has been deleted.", "success");
-          }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You want to delete this food item?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/foods/${id}`, {
+          method: "DELETE",
         })
-        .catch((err) => {
-          console.error("Delete error:", err);
-          Swal.fire("Error!", "Failed to delete the item.", "error");
-        });
-    }
-  });
-};
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              // re-fetch from server
+              fetch(`http://localhost:3000/my-foods?email=${user.email}`)
+                .then((res) => res.json())
+                .then((updated) => setMyFood(updated));
 
+              Swal.fire(
+                "Deleted!",
+                "Your food item has been deleted.",
+                "success"
+              );
+            }
+          })
+          .catch((err) => {
+            console.error("Delete error:", err);
+            Swal.fire("Error!", "Failed to delete the item.", "error");
+          });
+      }
+    });
+  };
 
   if (loading) {
     return <LoadingSpinner></LoadingSpinner>;
@@ -72,8 +71,11 @@ const ManageMyFoods = () => {
       </div>
     );
   }
-  return <div className="max-w-7xl mx-auto px-4 py-8 ">
-      <h1 className="text-2xl font-bold text-center mb-10 text-secondary">Manage My Foods</h1>
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-4 ">
+      <h1 className="text-2xl font-bold text-center mb-10 text-secondary">
+        Manage My Foods
+      </h1>
 
       <div className="overflow-x-auto  rounded-lg">
         <table className="min-w-full bg-white border border-orange-200">
@@ -121,9 +123,9 @@ const ManageMyFoods = () => {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span
                     className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                      food.status === 'Available'
-                        ? 'bg-green-100 text-green-500'
-                        : 'bg-red-100 text-red-500'
+                      food.status === "Available"
+                        ? "bg-green-100 text-green-500"
+                        : "bg-red-100 text-red-500"
                     }`}
                   >
                     {food.status}
@@ -148,7 +150,8 @@ const ManageMyFoods = () => {
           </tbody>
         </table>
       </div>
-    </div>;
+    </div>
+  );
 };
 
 export default ManageMyFoods;

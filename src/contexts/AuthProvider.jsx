@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { auth } from "../firebase/firebase.config";
 import { AuthContext } from "./AuthContext";
+import LoadingSpinner from "../pages/Loading/LoadingSpinner";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -10,7 +11,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import LoadingSpinner from "../pages/Loading/LoadingSpinner";
+
 
 
 const GoogleProvider = new GoogleAuthProvider();

@@ -12,13 +12,13 @@ const Navbar = () => {
   const { user, SignOut } = use(AuthContext);
   const links = (
     <>
-      <li>
+      <li className="hover:text-primary">
         <NavLink to="/">
           <IoHomeOutline />
           Home
         </NavLink>
       </li>
-      <li>
+      <li className="hover:text-primary">
         <NavLink to="/available-foods">
           <IoFastFoodOutline />
           Available Foods
@@ -36,6 +36,7 @@ const Navbar = () => {
       confirmButtonColor: "#F379A7",
       cancelButtonColor: "#aaa",
       confirmButtonText: "Yes, logout",
+      
     }).then((result) => {
       if (result.isConfirmed) {
         SignOut()
@@ -77,8 +78,8 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <img className="w-8 h-8" src={logo} alt="" />
-        <a className="btn btn-ghost text-xl">PlateShare</a>
+        <img className="w-10 h-10" src={logo} alt="Logo" />
+        <a className="text-xl text-secondary ml-1 font-bold">PlateShare</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -90,7 +91,7 @@ const Navbar = () => {
               <img
                 src={user.photoURL}
                 alt="Profile"
-                className="w-10 h-10 rounded-full border-2 cursor-pointer"
+                className="w-10 h-10 rounded-full border-primary border-2 cursor-pointer"
                 title={user.displayName || "User"}
               />
             </div>
@@ -98,19 +99,19 @@ const Navbar = () => {
               tabIndex={0}
               className="menu dropdown-content mt-3 z-index-1 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
+              <li className="hover:text-primary">
                 <NavLink to="/add-food">
                   <IoIosAddCircleOutline />
                   Add Food
                 </NavLink>
               </li>
-              <li>
+              <li className="hover:text-primary">
                 <NavLink to="/manage-my-foods">
                   <MdManageAccounts />
                   Manage My Foods
                 </NavLink>
               </li>
-              <li>
+              <li className="hover:text-primary">
                 <NavLink to="/my-food-requests">
                   <MdOutlineFoodBank />
                   My Food Requests

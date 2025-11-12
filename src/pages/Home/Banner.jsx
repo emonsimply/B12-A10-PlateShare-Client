@@ -1,4 +1,3 @@
-// src/components/Banner.jsx
 import React from 'react';
 import { FaSearch, FaUtensils, FaLeaf } from 'react-icons/fa';
 import { motion } from 'framer-motion';
@@ -6,7 +5,7 @@ import { motion } from 'framer-motion';
 const Banner = () => {
   return (
     <section className="relative bg-linear-to-br from-orange-50 via-amber-50 to-yellow-50 overflow-hidden">
-      {/* Decorative Background Elements */}
+      
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse animation-delay-2000"></div>
@@ -35,7 +34,7 @@ const Banner = () => {
 
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto lg:mx-0">
               Join PlateShare to donate surplus food and help those in need. 
-              Every meal shared reduces waste and brings hope to someone’s table.
+              Every meal shared reduces waste and brings hope to someone's table.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

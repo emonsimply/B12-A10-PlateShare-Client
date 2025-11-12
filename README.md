@@ -1,16 +1,42 @@
-# React + Vite
+# PlateShare
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Project:** PlateShare — Community Food Sharing
 
-Currently, two official plugins are available:
+**Live site:** [https://b12-a10-plateshare-emonsimply.netlify.app/]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## About
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+PlateShare is a full-stack MERN single-page application that helps community members share surplus food to reduce waste. Donators can post food items with pickup details and expiry dates, and others can browse, request, and collect available items.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Key Features
+
+* User authentication with Firebase (email/password + Google Sign-In).
+* Add, update, view, and delete food posts (CRUD) stored in MongoDB.
+* Featured foods on the Home page (shows top 6 by quantity).
+* Private routes for adding food, viewing details, managing own foods, and requests — protected with Firebase auth.
+* Food Request System: users can request foods; the owner can Accept/Reject requests and mark foods as donated.
+* Image hosting via imgbb for uploaded food images.
+* Smooth UI with animations (framer-motion / AOS) and loading states.
+
+---
+
+## Why this project matters
+
+* Reduces food waste by connecting donors with people in need.
+* Simple workflow: Post Food → Request Food → Deliver.
+* Focus on accessibility and responsive design for mobile and desktop.
+
+---
+
+## Tech Stack
+
+* Frontend: React (Vite), Tailwind CSS + DaisyUI, Framer Motion, React Router
+* Backend: Node.js, Express, MongoDB (Atlas)
+* Authentication: Firebase
+* Hosting: Client (Netlify), Server (Vercel)
+
+
