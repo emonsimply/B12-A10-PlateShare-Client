@@ -58,6 +58,9 @@ const FoodDetails = () => {
       });
   }, [user, id]);
 
+  const requestsF = requests.filter(rf => rf.foodId === food._id);
+  console.log(requestsF)
+
   if (loading) {
     return <LoadingSpinner></LoadingSpinner>;
   }
@@ -194,7 +197,7 @@ const FoodDetails = () => {
         </button>
 
         <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-          <div className="modal-box bg-orange-50">
+          <div className="modal-box bg-orange-100">
             <h3 className="font-bold text-2xl mb-4 text-center text-primary">
               Request This Food
             </h3>
@@ -207,7 +210,7 @@ const FoodDetails = () => {
                   name="location"
                   placeholder="Enter your pickup location"
                   required
-                  className="input input-bordered w-full"
+                  className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
                 />
               </div>
 
@@ -217,7 +220,7 @@ const FoodDetails = () => {
                   name="reason"
                   placeholder="Explain your reason..."
                   required
-                  className="textarea textarea-bordered w-full"
+                  className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
                 ></textarea>
               </div>
 
@@ -228,14 +231,14 @@ const FoodDetails = () => {
                   name="contactNo"
                   placeholder="Enter your phone number"
                   required
-                  className="input input-bordered w-full"
+                  className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
                 />
               </div>
 
               <div className="modal-action flex justify-between items-center">
                 <button
                   type="submit"
-                  className="w-full md:w-auto px-4 py-1 border-2 text-primary hover:text-white font-semibold rounded-full hover:bg-primary cursor-pointer transition-all duration-300"
+                  className="w-full md:w-auto px-4 py-1.5 border-2 text-primary hover:text-white font-semibold rounded-full hover:bg-primary cursor-pointer transition-all duration-300"
                 >
                   Submit Request
                 </button>
@@ -255,7 +258,7 @@ const FoodDetails = () => {
       {user?.email === donator_email && requests.length > 0 && (
         <div className="my-10 max-w-7xl mx-auto px-4">
           <h2 className="text-2xl font-semibold mb-4 text-secondary">
-            Food Requests ({requests.length})
+            Food Requests
           </h2>
           <div className="overflow-x-auto rounded-lg">
             <table className="table w-full border border-orange-200">
@@ -270,7 +273,7 @@ const FoodDetails = () => {
                 </tr>
               </thead>
               <tbody>
-                {requests.map((req) => (
+                {requestsF.map((req) => (
                   <tr key={req._id} className="border-b border-orange-200 hover:bg-orange-50">
                     <td className="flex items-center gap-2">
                       <img
