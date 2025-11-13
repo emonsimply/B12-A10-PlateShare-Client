@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaSearch, FaUtensils, FaLeaf } from 'react-icons/fa';
+import { FaUtensils, FaLeaf } from 'react-icons/fa';
+import { IoFastFoodOutline } from 'react-icons/io5';
 import { motion } from 'framer-motion';
 
 const Banner = () => {
@@ -44,8 +45,8 @@ const Banner = () => {
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white font-semibold rounded-full shadow-lg hover:bg-primary transition-all duration-300 group"
               >
-                <FaSearch className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                Search Food
+                <IoFastFoodOutline className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                View All Foods
               </motion.a>
 
               <motion.a
@@ -70,7 +71,6 @@ const Banner = () => {
             className="relative"
           >
             <div className="relative mx-auto w-full max-w-md lg:max-w-lg">
-              {/* Main Food Plate Illustration */}
               <div className="relative bg-white rounded-3xl shadow-2xl p-8 transform hover:rotate-1 transition-transform duration-500">
                 <div className="bg-linear-to-br from-yellow-100 to-orange-100 rounded-2xl p-6">
                   <img
@@ -80,7 +80,7 @@ const Banner = () => {
                   />
                 </div>
 
-                {/* Floating Elements */}
+               
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}

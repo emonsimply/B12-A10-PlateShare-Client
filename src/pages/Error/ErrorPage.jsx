@@ -5,7 +5,7 @@ import { Link } from "react-router";
 
 const ErrorPage = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
+    <div className="min-h-screen flex flex-col items-center justify-center pb-16">
       <div className="w-100 md:w-200">
         <Lottie animationData={errorAnimation} loop={true} />
       </div>

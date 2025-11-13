@@ -1,16 +1,14 @@
 import React, { use } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
 
-
-
 const Register = () => {
+  const { singInWithGoogle, createUser, updateUserProfile } = use(AuthContext);
 
-
- const { singInWithGoogle, createUser, updateUserProfile } = use(AuthContext);
-
+  const location = useLocation();
+  const navigate = useNavigate();
 
   //Password validation rules
   const validatePassword = (password) => {
@@ -37,6 +35,8 @@ const Register = () => {
         icon: "error",
         title: "Password Error",
         text: passwordError,
+        confirmButtonColor: "#ef4444",
+        background: "#fee2e2",
       });
       return;
     }
@@ -49,7 +49,10 @@ const Register = () => {
               icon: "success",
               title: "Registration Successful!",
               text: "Welcome to PlateShare!",
+              confirmButtonColor: "#22c55e",
+              background: "#dcfce7",
             });
+            navigate(location.state || "/");
           })
           .catch(() => {});
       })
@@ -58,10 +61,11 @@ const Register = () => {
           icon: "error",
           title: "Registration Failed",
           text: err.message,
+          confirmButtonColor: "#ef4444",
+          background: "#fee2e2",
         });
       });
   };
-
 
   const handleGoogleLogin = () => {
     singInWithGoogle()
@@ -70,19 +74,21 @@ const Register = () => {
           icon: "success",
           title: "Logged in with Google!",
           text: `Welcome ${result.user.displayName}`,
+          confirmButtonColor: "#22c55e",
+          background: "#dcfce7",
         });
+        navigate(location.state || "/");
       })
       .catch((err) => {
         Swal.fire({
           icon: "error",
           title: "Google Login Failed",
           text: err.message,
+          confirmButtonColor: "#ef4444",
+          background: "#fee2e2",
         });
       });
   };
-
-
-
 
   return (
     <div className="min-h-[calc(100vh-137px)] flex items-center justify-center p-4">

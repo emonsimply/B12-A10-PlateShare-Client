@@ -21,7 +21,8 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => fetch("http://localhost:3000/featured-foods"),
+        loader: () =>
+          fetch("https://plate-share-server-kohl.vercel.app/featured-foods"),
       },
       {
         path: "/login",
@@ -34,11 +35,15 @@ export const router = createBrowserRouter([
       {
         path: "/available-foods",
         element: <AvailableFoods></AvailableFoods>,
-        loader: () => fetch("http://localhost:3000/foods"),
+        loader: () => fetch("https://plate-share-server-kohl.vercel.app/foods"),
       },
       {
         path: "/add-food",
-        element: <AddFood></AddFood>,
+        element: (
+          <PrivateRoute>
+            <AddFood></AddFood>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/food/:id",
@@ -64,7 +69,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/foods/${params.id}`),
+          fetch(
+            `https://plate-share-server-kohl.vercel.app/foods/${params.id}`
+          ),
       },
       {
         path: "/my-food-requests",
@@ -73,6 +80,7 @@ export const router = createBrowserRouter([
             <MyFoodRequests></MyFoodRequests>
           </PrivateRoute>
         ),
+        loader: () => fetch("https://plate-share-server-kohl.vercel.app/foods"),
       },
     ],
   },

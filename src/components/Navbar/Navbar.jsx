@@ -33,9 +33,10 @@ const Navbar = () => {
       text: "You will be logged out from your account!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#F379A7",
-      cancelButtonColor: "#aaa",
+      confirmButtonColor: "#ef4444",
+      cancelButtonColor: "#22c55e",
       confirmButtonText: "Yes, logout",
+      background: "#ffedd5"
       
     }).then((result) => {
       if (result.isConfirmed) {
@@ -79,7 +80,7 @@ const Navbar = () => {
           </ul>
         </div>
         <img className="w-10 h-10" src={logo} alt="Logo" />
-        <a className="text-xl text-secondary ml-1 font-bold">PlateShare</a>
+        <a className="text-2xl text-secondary ml-1 font-bold ">PlateShare</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>

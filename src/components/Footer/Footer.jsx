@@ -1,20 +1,20 @@
 import React from "react";
+import { FaXTwitter } from "react-icons/fa6";
 import {
   FaFacebookF,
   FaLinkedinIn,
-  FaTwitter,
   FaBehance,
   FaInstagram,
-  FaGooglePlusG,
   FaPhoneAlt,
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import logo from "../../assets/PlateShare_logo_icon.png";
+
 const socialLinks = [
   { icon: FaFacebookF, url: "https://facebook.com" },
   { icon: FaLinkedinIn, url: "https://linkedin.com" },
-  { icon: FaTwitter, url: "https://twitter.com" },
+  { icon: FaXTwitter, url: "https://twitter.com" },
   { icon: FaBehance, url: "https://behance.net" },
   { icon: FaInstagram, url: "https://instagram.com" },
 ];

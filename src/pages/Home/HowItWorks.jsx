@@ -1,4 +1,3 @@
-// src/components/HowItWorks.jsx
 import React from 'react';
 import { FaPlus, FaSearch, FaHandsHelping } from 'react-icons/fa';
 import { motion } from 'framer-motion';

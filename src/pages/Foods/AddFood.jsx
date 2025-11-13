@@ -29,7 +29,7 @@ const AddFood = () => {
     
     setLoading(false);
 
-    fetch("http://localhost:3000/foods", {
+    fetch("https://plate-share-server-kohl.vercel.app/foods", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,8 +43,8 @@ const AddFood = () => {
           text: "Your food item is now available for donation.",
           icon: "success",
           confirmButtonText: "Great!",
-          confirmButtonColor: "#16a34a",
-          background: "#f0fdf4",
+          confirmButtonColor: "#22c55e",
+          background: "#dcfce7",
         });
 
         e.target.reset();
@@ -75,9 +75,10 @@ const AddFood = () => {
             <label className="block font-semibold">Food Name</label>
             <input
               type="text"
-              name="name"
+              name="Enter food name"
+              placeholder="Name"
               required
-              className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+              className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
             />
           </div>
 
@@ -88,8 +89,9 @@ const AddFood = () => {
               <input
                 type="text"
                 name="imageUrl"
+                placeholder="Paste image URL"
                 required
-                className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+                className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
               />
             </div>
 
@@ -101,7 +103,7 @@ const AddFood = () => {
                 name="quantity"
                 placeholder="Enter number of people"
                 required
-                className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+                className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
               />
             </div>
           </div>
@@ -113,8 +115,9 @@ const AddFood = () => {
               <input
                 type="text"
                 name="pickup"
+                placeholder="Enter pickup location"
                 required
-                className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+                className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
               />
             </div>
 
@@ -126,7 +129,7 @@ const AddFood = () => {
                 onChange={(date) => setExpireDate(date)}
                 dateFormat="yyyy-MM-dd"
                 placeholderText="Select expire date"
-                className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+                className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
                 required
               />
             </div>
@@ -137,8 +140,9 @@ const AddFood = () => {
             <label className="block font-semibold">Additional Notes</label>
             <textarea
               name="notes"
+              placeholder="Write any special notes or food details"
               rows="3"
-              className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+              className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
             ></textarea>
           </div>
 

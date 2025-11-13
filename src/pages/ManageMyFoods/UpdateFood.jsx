@@ -10,7 +10,7 @@ const UpdateFood = () => {
   const navigate = useNavigate();
   const { user } = use(AuthContext);
   const [loading, setLoading] = useState(false);
-  const food = data.result;
+  const food = data;
 
   const [expireDate, setExpireDate] = useState(
     food?.expire_date ? new Date(food.expire_date) : null
@@ -31,7 +31,7 @@ const UpdateFood = () => {
 
     setLoading(false);
 
-    fetch(`http://localhost:3000/foods/${food._id}`, {
+    fetch(`https://plate-share-server-kohl.vercel.app/foods/${food._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +77,7 @@ const UpdateFood = () => {
               type="text"
               name="name"
               required
-              className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+              className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
             />
           </div>
 
@@ -90,7 +90,7 @@ const UpdateFood = () => {
                 type="text"
                 name="imageUrl"
                 required
-                className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+                className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
               />
             </div>
 
@@ -103,7 +103,7 @@ const UpdateFood = () => {
                 name="quantity"
                 placeholder="Enter number of people"
                 required
-                className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+                className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
               />
             </div>
           </div>
@@ -117,7 +117,7 @@ const UpdateFood = () => {
                 type="text"
                 name="pickup"
                 required
-                className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+                className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
               />
             </div>
 
@@ -129,7 +129,7 @@ const UpdateFood = () => {
                 onChange={(date) => setExpireDate(date)}
                 dateFormat="yyyy-MM-dd"
                 placeholderText="Select expire date"
-                className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+                className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
                 required
               />
             </div>
@@ -142,7 +142,7 @@ const UpdateFood = () => {
               defaultValue={food.additional_notes}
               name="notes"
               rows="3"
-              className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+              className="w-full mt-1 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-primary"
             ></textarea>
           </div>
 

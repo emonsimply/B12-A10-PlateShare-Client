@@ -18,7 +18,7 @@ PlateShare is a full-stack MERN single-page application that helps community mem
 * Add, update, view, and delete food posts (CRUD) stored in MongoDB.
 * Featured foods on the Home page (shows top 6 by quantity).
 * Private routes for adding food, viewing details, managing own foods, and requests — protected with Firebase auth.
-* Food Request System: users can request foods; the owner can Accept/Reject requests and mark foods as donated.
+* Food Request System: users can request foods; the owner can Accept/Reject requests and mark foods as Donated.
 * Image hosting via imgbb for uploaded food images.
 * Smooth UI with animations (framer-motion / AOS) and loading states.
 

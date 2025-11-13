@@ -23,6 +23,7 @@ const Login = () => {
           text: "Welcome back to ToyTopia!",
           timer: 1800,
           showConfirmButton: false,
+          background: "#dcfce7",
         });
         e.target.reset();
         navigate(location.state || "/");
@@ -43,6 +44,8 @@ const Login = () => {
           icon: "success",
           title: "Logged in with Google!",
           text: `Welcome ${result.user.displayName}`,
+          confirmButtonColor: "#22c55e",
+          background: "#dcfce7",
         });
         navigate(location.state || "/");
       })

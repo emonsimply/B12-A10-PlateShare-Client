@@ -10,7 +10,7 @@ const ManageMyFoods = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/my-foods?email=${user.email}`)
+    fetch(`https://plate-share-server-kohl.vercel.app/my-foods?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyFood(data);
@@ -29,14 +29,14 @@ const ManageMyFoods = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/foods/${id}`, {
+        fetch(`https://plate-share-server-kohl.vercel.app/foods/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
               // re-fetch from server
-              fetch(`http://localhost:3000/my-foods?email=${user.email}`)
+              fetch(`https://plate-share-server-kohl.vercel.app/my-foods?email=${user.email}`)
                 .then((res) => res.json())
                 .then((updated) => setMyFood(updated));
 

@@ -6,7 +6,7 @@ import { IoIosArrowForward } from 'react-icons/io';
 const FeaturedFoods = ({data}) => {
   return (
     <>
-    <div className="text-center my-10">
+    <div className="text-center mb-12  mt-16 md:mt-24">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-3">
             Top Surplus <span className="text-primary">Foods</span>
           </h2>
@@ -15,7 +15,7 @@ const FeaturedFoods = ({data}) => {
           </p>
         </div>
 
-        <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-4'>
+        <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-4'>
       {
         data.map(food => <FoodCard key={food._id} food={food}></FoodCard>)
       }
